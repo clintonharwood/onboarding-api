@@ -7,24 +7,18 @@
  * Visit http://www.pragmaticprogrammer.com/titles/maapis for more book information.
 ***/
 /*****************************************
-// bigco, inc onboarding
-// root of the service API
+// bigco, inc company
+// representation templates
 // 2020-02-01 : mamund
  *****************************************/
  
-var express = require('express');
-var app = express();
-var cors = require('cors');
+ // CSV response template
+exports.template = 
+{
+  format: "text/csv",
+  view: 
+  `<%var y=0;%><%for(var p in rtn[0]){%><%if(y!==0){%>,<%}%>"<%=p%>"<%y=1;%><%}%>
+<%rtn.forEach(function(item){%><%var y=0;%><%for(var p in item){%><%if(y!==0){%>,<%}%>"<%=item[p]%>"<%y=1;%><%}%>
+<%});%>`
+}
 
-var resources = require('./darrt/resources');
-var port = process.env.PORT || 8080;
-
-// support calls from JS in browser
-app.use(cors());
-app.options('*',cors()); 
-
-// point to exposed resources for this API
-app.use('/',resources); 
-
-// start listening for requests
-app.listen(port, () => console.log(`listening on port ${port}!`));
