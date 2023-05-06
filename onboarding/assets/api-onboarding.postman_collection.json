@@ -1,0 +1,40 @@
+{
+	"variables": [],
+	"info": {
+		"name": "api-onboarding",
+		"_postman_id": "3867ad70-5e9b-1954-11a4-e079f3f61bab",
+		"description": "tests for the bigCo, Inc onboarding-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost-home",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests['Response code is 200'] = responseCode.code === 200;",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8888/",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.collection+json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "collection+json testing"
+			},
+			"response": []
+		}
+	]
+}
